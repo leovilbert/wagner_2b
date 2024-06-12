@@ -40,7 +40,7 @@ function showMessage() {
 
 function updateTasks() {
     let divTasks = document.getElementById('tasks');
-    divTasks.innerHTML = ''; // Limpa o conteúdo anterior para evitar duplicatas
+    divTasks.innerHTML = '';
 
     if (taskList.length > 0) {
         let newOl = document.createElement('ol');
@@ -50,15 +50,21 @@ function updateTasks() {
             let newLi = document.createElement('li');
             newLi.innerText = task;
 
+            let concludeTask = document.createElement('button');
+            removeTask.textContent = 'O';
+
             let removeTask = document.createElement('button');
             removeTask.textContent = 'X';
 
-            newLi.appendChild(removeTask);
             newOl.appendChild(newLi);
+            newOl.appendChild(concludeTask);
+            newLi.appendChild(removeTask);
+            
         });
 
         divTasks.appendChild(newOl);
 
+        superButton.disabled = false;
         let removeButtons = divTasks.querySelectorAll('button');
         removeButtons.forEach((button, index) => {
             button.addEventListener("click", function () {
@@ -74,7 +80,6 @@ function removeAll() {
     localStorage.setItem('taskList', taskList)
     updateTasks();
 }
-
 
 function highlightRandomTask() {
     if (taskList.length > 0) {

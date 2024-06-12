@@ -134,6 +134,19 @@ main>div>form>button:hover {
 }
 
 #highlight {
-    background-color: yellow;
+    background-color: #8357C5;
+    opacity: 0.6;
     font-weight: bold;
+    border-radius: 1rem;
+}
+
+#tasks > ol > li > button {
+    width: 5%;
+    border-radius: 1rem;
+    background-color: #8357C5;
+    color: white;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+
 }
